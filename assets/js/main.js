@@ -7,14 +7,15 @@ const txtCharacter = document.getElementById('txtCharacter')
 
 const btnSubscribe = document.getElementById('btnSubscribe')
 
-btnSubscribe.addEventListener('click', () => {
-    const subscription = {
+btnSubscribe.addEventListener('click', async () => {
+    const subscribe = {
         name: txtName.value,
         email: txtEmail.value,
         level: txtLevel.value,
         character: txtCharacter.value
     }
 
-    subscribeToHellfire(subscription)
+    const subscriptionId = await subscribeToHellfire(subscribe)
+    console.log('Inscrito com sucesso: ' + subscriptionId)
 })
 
